@@ -24,10 +24,12 @@
 
         jQuery(document).ready(function () {
             var uid = "";
+            var userName = "";
             liff
                 .getProfile()
                 .then((profile) => {
                     uid = profile.userId;
+                    userName = profile.displayName;
                 })
                 .catch((err) => {
                     console.log("error", err);
@@ -44,7 +46,7 @@
                     .then((result) => {
                         fetch(`https://tmonr01wlf.execute-api.ap-northeast-1.amazonaws.com/asthmaChatAdd/asthmaChatRESTAPI?medication=${result.value}&uid=${uid}`)
                             .then(
-                                (result) => { alert("設定成功！"); }
+                                (result) => { alert(`${userName}您好，您的資料設定成功！`); }
                             )
                             .catch((error) => {
                                 alert(error);
