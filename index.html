@@ -21,8 +21,8 @@
         const liffId = "1657234797-4BJoAWwl";
 
         liff.init({ liffId });
-
-        jQuery(document).ready(function () {
+        
+        liff.ready.then(() => {
             var uid = "";
             var userName = "";
             liff
@@ -59,11 +59,7 @@
                     });
 
             });
-
-
         });
-
-
 
 
 
