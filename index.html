@@ -41,7 +41,7 @@
                     .then((result) => {
                         fetch('https://tmonr01wlf.execute-api.ap-northeast-1.amazonaws.com/asthmaChatAdd/asthmaChatRESTAPI?medication=${result.value}&uid=${uid}')
                               .then(function(response) {
-                                return response.json();
+                                 alert("設定成功！");
                               })
                               .then(function(myJson) {
                                 console.log(myJson);
