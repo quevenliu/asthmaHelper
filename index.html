@@ -20,7 +20,16 @@
         const liffId = "1657234797-4BJoAWwl";
         liff.init({ liffId });
         jQuery(document).ready(function () {
-
+            var uid = "";
+            liff
+              .getProfile()
+              .then((profile) => {
+                uid = profile.userId;
+              })
+              .catch((err) => {
+                console.log("error", err);
+              });
+            
             jQuery("#nhs").click(function () {
                 alert("目前尚未支援.");
             });
@@ -28,9 +37,15 @@
             jQuery("#qr").click(function () {
                 liff
                     .scanCodeV2()
-
+                    
                     .then((result) => {
-                        alert(result.value);
+                        fetch('https://tmonr01wlf.execute-api.ap-northeast-1.amazonaws.com/asthmaChatAdd/asthmaChatRESTAPI?medication=${result.value}&uid=${uid}')
+                              .then(function(response) {
+                                return response.json();
+                              })
+                              .then(function(myJson) {
+                                console.log(myJson);
+                              });
                     })
                     .catch((error) => {
                         console.log("error", error);
