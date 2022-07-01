@@ -58,10 +58,10 @@
                 );
 
             jQuery(".plus").click(() => {
-                jQuery(this).siblings("input").value(String(toSixty(parseInt(jQuery(this).siblings("input").value()) + 15)));
+                jQuery(this).siblings("input").val(String(toSixty(parseInt(jQuery(this).siblings("input").val()) + 15)));
             });
             jQuery(".minus").click(() => {
-                jQuery(this).siblings("input").value(String(toSixty(parseInt(jQuery(this).siblings("input").value()) - 15)));
+                jQuery(this).siblings("input").val(String(toSixty(parseInt(jQuery(this).siblings("input").val()) - 15)));
             });
 
 
